@@ -77,6 +77,7 @@ public class TelevisionService {
         if (television.isEmpty()) {
             throw new RecordNotFoundException("No television found with id: " + id);
         } else {
+
             Television tv = television.get();
             if (newTelevision.getAmbiLight() != null) {
                 tv.setAmbiLight(newTelevision.getAmbiLight());
@@ -128,7 +129,7 @@ public class TelevisionService {
             }
 
             Television returnTelevision = repos.save(tv);
-            TelevisionMapper.toResponseDto(returnTelevision);
+            return TelevisionMapper.toResponseDto(returnTelevision);
         }
     }
 }
