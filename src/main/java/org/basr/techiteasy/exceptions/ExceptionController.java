@@ -28,4 +28,9 @@ public class ExceptionController {
 
         return ResponseEntity.badRequest().body(errors);
     }
+
+    @ExceptionHandler(value = TelevisionNameTooLongException.class)
+    public ResponseEntity<String> exception(TelevisionNameTooLongException exception) {
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
+    }
 }
